@@ -12,13 +12,13 @@ namespace ConsoleAppProject.App03
     public enum Grades
     {
         [Description("Fail")]
-        F, 
+        F,
         [Description("Third Class")]
-        D, 
+        D,
         [Description("Lower Second")]
-        C, 
+        C,
         [Description("Upper Second")]
-        B, 
+        B,
         [Description("First Class")]
         A
     }

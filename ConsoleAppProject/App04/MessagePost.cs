@@ -124,11 +124,11 @@ namespace ConsoleAppProject.App04
         private String FormatElapsedTime(DateTime time)
         {
             DateTime current = DateTime.Now;
-            TimeSpan timePast = current - time; 
+            TimeSpan timePast = current - time;
 
             long seconds = (long)timePast.TotalSeconds;
             long minutes = seconds / 60;
-            
+
             if (minutes > 0)
             {
                 return minutes + " minutes ago";
