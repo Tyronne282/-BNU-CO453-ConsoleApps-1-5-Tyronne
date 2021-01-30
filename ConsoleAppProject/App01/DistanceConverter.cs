@@ -7,7 +7,6 @@ namespace ConsoleAppProject.App01
     /// <author>
     /// Tyronne Bradburn 0.1
     /// </author>
-    /// Feature 3 = convert miles to metres
     public class DistanceConverter
     {
         public const int FEET_IN_MILES = 5280;
