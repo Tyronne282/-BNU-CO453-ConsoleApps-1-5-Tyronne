@@ -2,24 +2,44 @@
 namespace ConsoleAppProject.App01
 {
     /// <summary>
-    /// Please describe the main features of this App
+    /// The App will convert miles to feet and miles to metres
     /// </summary>
     /// <author>
-    /// Student Name version 0.1
+    /// Tyronne Bradburn 0.1
     /// </author>
     public class DistanceConverter
     {
+        public const int FEET_IN_MILES = 5280;
+
         private double miles;
 
         private double feet;
 
         /// <summary>
-        /// 
+        /// This will run the program.
         /// </summary>
         public void Run()
         {
+            ConvertMilesToFeet();
+        }
+
+        private void OutputHeading()
+        {
+            Console.WriteLine();
+            Console.WriteLine("\n --------------------------------- ");
+            Console.WriteLine("         Covert Miles to Feet      ");
+            Console.WriteLine("         by Tyronne Bradburn       ");
+            Console.WriteLine(" ---------------------------------\n ");
+            Console.WriteLine();
+        }
+
+        public void ConvertMilesToFeet()
+        {
+            OutputHeading();
             InputMiles();
-            CalculateFeet();
+
+            feet = miles * FEET_IN_MILES;
+
             OutputFeet();
         }
 
@@ -34,14 +54,13 @@ namespace ConsoleAppProject.App01
             miles = Convert.ToDouble(value);
         }
 
-        private void CalculateFeet()
-        {
-
-        }
+        /// <summary>
+        /// This method will multiply the miles by feet(5280).
+        /// </summary>
 
         private void OutputFeet()
         {
-
+            Console.WriteLine(miles + " miles is " + feet + " feet! ");
         }
     }
 }
