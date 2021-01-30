@@ -23,16 +23,9 @@ namespace ConsoleAppProject.App01
             ConvertMilesToFeet();
         }
 
-        private void OutputHeading()
-        {
-            Console.WriteLine();
-            Console.WriteLine("\n --------------------------------- ");
-            Console.WriteLine("         Covert Miles to Feet      ");
-            Console.WriteLine("         by Tyronne Bradburn       ");
-            Console.WriteLine(" ---------------------------------\n ");
-            Console.WriteLine();
-        }
-
+        /// <summary>
+        /// This method will mulitply miles by the const int of 5280
+        /// </summary>
         public void ConvertMilesToFeet()
         {
             OutputHeading();
@@ -41,6 +34,16 @@ namespace ConsoleAppProject.App01
             feet = miles * FEET_IN_MILES;
 
             OutputFeet();
+        }
+
+        private void OutputHeading()
+        {
+            Console.WriteLine();
+            Console.WriteLine("\n --------------------------------- ");
+            Console.WriteLine("         Covert Miles to Feet      ");
+            Console.WriteLine("         by Tyronne Bradburn       ");
+            Console.WriteLine(" ---------------------------------\n ");
+            Console.WriteLine();
         }
 
         /// <summary>
@@ -53,10 +56,6 @@ namespace ConsoleAppProject.App01
             string value = Console.ReadLine();
             miles = Convert.ToDouble(value);
         }
-
-        /// <summary>
-        /// This method will multiply the miles by feet(5280).
-        /// </summary>
 
         private void OutputFeet()
         {
