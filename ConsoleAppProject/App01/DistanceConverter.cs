@@ -28,7 +28,7 @@ namespace ConsoleAppProject.App01
         }
 
         /// <summary>
-        /// This method will mulitply miles 5280
+        /// This method will mulitply miles by 5280 to get feet
         /// </summary>
         public void ConvertMilesToFeet()
         {
