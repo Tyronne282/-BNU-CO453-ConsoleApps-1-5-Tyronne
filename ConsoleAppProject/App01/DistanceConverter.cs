@@ -12,6 +12,8 @@ namespace ConsoleAppProject.App01
     {
         public const int FEET_IN_MILES = 5280;
 
+        public const int MILE_IN_METERS = 1609;
+
         private double miles;
 
         private double feet;
@@ -55,8 +57,8 @@ namespace ConsoleAppProject.App01
         {
             Console.WriteLine();
             Console.WriteLine("\n --------------------------------- ");
-            Console.WriteLine("         Covert Miles to Feet      ");
-            Console.WriteLine("         by Tyronne Bradburn       ");
+            Console.WriteLine("      Coverting Miles/Feet/Meters    ");
+            Console.WriteLine("         by Tyronne Bradburn         ");
             Console.WriteLine(" ---------------------------------\n ");
             Console.WriteLine();
         }
