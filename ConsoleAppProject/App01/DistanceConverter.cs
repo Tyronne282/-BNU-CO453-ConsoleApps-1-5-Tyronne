@@ -18,6 +18,8 @@ namespace ConsoleAppProject.App01
 
         private double feet;
 
+        private double meters; 
+
         /// <summary>
         /// This will run the program.
         /// </summary>
@@ -25,6 +27,7 @@ namespace ConsoleAppProject.App01
         {
             ConvertMilesToFeet();
             ConvertFeetToMiles();
+            ConvertMilesToMeters();
         }
 
         /// <summary>
@@ -51,6 +54,16 @@ namespace ConsoleAppProject.App01
             miles = feet / FEET_IN_MILES;
 
             OutputMiles();
+        }
+
+        public void ConvertMilesToMeters()
+        {
+            OutputHeading();
+            InputMiles();
+
+            meters = miles * MILE_IN_METERS;
+
+            OutputMeters();
         }
 
         private void OutputHeading()
@@ -93,6 +106,11 @@ namespace ConsoleAppProject.App01
         private void OutputMiles()
         {
             Console.WriteLine(feet + " feet is " + miles + " miles! ");
+        }
+
+        private void OutputMeters()
+        {
+            Console.WriteLine(miles + " miles is " + meters + " meters! ");
         }
     }
 }
