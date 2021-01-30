@@ -7,6 +7,7 @@ namespace ConsoleAppProject.App01
     /// <author>
     /// Tyronne Bradburn 0.1
     /// </author>
+    /// Feature 3 = convert miles to metres
     public class DistanceConverter
     {
         public const int FEET_IN_MILES = 5280;
@@ -21,10 +22,11 @@ namespace ConsoleAppProject.App01
         public void Run()
         {
             ConvertMilesToFeet();
+            ConvertFeetToMiles();
         }
 
         /// <summary>
-        /// This method will mulitply miles by the const int of 5280
+        /// This method will mulitply miles 5280
         /// </summary>
         public void ConvertMilesToFeet()
         {
@@ -34,6 +36,19 @@ namespace ConsoleAppProject.App01
             feet = miles * FEET_IN_MILES;
 
             OutputFeet();
+        }
+
+        /// <summary>
+        /// This Method will divide feet by 5280 to get miles
+        /// </summary>
+        public void ConvertFeetToMiles()
+        {
+            OutputHeading();
+            InputFeet();
+
+            miles = feet / FEET_IN_MILES;
+
+            OutputMiles();
         }
 
         private void OutputHeading()
@@ -57,9 +72,25 @@ namespace ConsoleAppProject.App01
             miles = Convert.ToDouble(value);
         }
 
+        /// <summary>
+        /// Prompt the user to enter the distance in feet. 
+        /// Input feet as a double number
+        /// </summary>
+        private void InputFeet()
+        {
+            Console.Write("Please enter the number of feet > ");
+            string value = Console.ReadLine();
+            feet = Convert.ToDouble(value);
+        }
+
         private void OutputFeet()
         {
             Console.WriteLine(miles + " miles is " + feet + " feet! ");
+        }
+
+        private void OutputMiles()
+        {
+            Console.WriteLine(feet + " feet is " + miles + " miles! ");
         }
     }
 }
