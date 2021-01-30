@@ -56,6 +56,9 @@ namespace ConsoleAppProject.App01
             OutputMiles();
         }
 
+        /// <summary>
+        /// This method will multiply miles by 1609 to get meters
+        /// </summary>
         public void ConvertMilesToMeters()
         {
             OutputHeading();
