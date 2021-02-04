@@ -24,7 +24,7 @@ namespace ConsoleAppProject.App01
         /// Constants (Unit Names)
         /// </summary>
         public const string FEET = "feet";
-        public const string METERS = "meters";
+        public const string METRES = "metres";
         public const string MILES = "miles";
 
         /// <summary>
