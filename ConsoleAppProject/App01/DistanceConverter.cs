@@ -182,7 +182,7 @@ namespace ConsoleAppProject.App01
         {
             Console.WriteLine();
             Console.WriteLine("\n --------------------------------- ");
-            Console.WriteLine("      Coverting Miles/Feet/Meters    ");
+            Console.WriteLine("      Coverting Miles/Feet/Metres    ");
             Console.WriteLine("          by Tyronne Bradburn        ");
             Console.WriteLine(" ---------------------------------\n ");
             Console.WriteLine();
