@@ -12,7 +12,6 @@ namespace ConsoleAppProject.App01
     /// </author>
     public class DistanceConverter
     {
-
         /// <summary>
         /// Constants (Conversion Numbers) 
         /// </summary>
