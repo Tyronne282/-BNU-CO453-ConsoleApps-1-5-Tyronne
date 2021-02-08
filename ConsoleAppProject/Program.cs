@@ -14,16 +14,28 @@ namespace ConsoleAppProject
     /// </summary>
     public static class Program
     {
+        private static DistanceConverter converter = new DistanceConverter();
+
+        private static BMI calculator = new BMI();
+
         public static void Main(string[] args)
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
 
-            Console.WriteLine("BNU CO453 Applications Programming 2020-2021!");
-            Console.WriteLine();
-            Console.Beep();
+            ConsoleHelper.OutputHeading("BNU CO453 Applications Programming 2020-2021!");
 
-            DistanceConverter converter = new DistanceConverter();
-            converter.ConvertDistance();
+            string[] choices = { "Distance Converter", "BMI Calculater" };
+            int choiceNo = ConsoleHelper.SelectChoice(choices);
+
+            if (choiceNo == 1)
+            {
+                converter.ConvertDistance();
+            }
+            else if (choiceNo == 2)
+            {
+                calculator.CalculateIndex();
+            }
+            else Console.WriteLine("Invalid choice ! ");
         }
     }
 }

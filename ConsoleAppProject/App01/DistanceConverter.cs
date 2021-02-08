@@ -32,6 +32,7 @@ namespace ConsoleAppProject.App01
         /// </summary>
         private double FromDistance;
         private double ToDistance;
+
         private DistanceUnits fromUnit;
         private DistanceUnits toUnit;
 
@@ -54,14 +55,14 @@ namespace ConsoleAppProject.App01
         /// </summary>
         public void ConvertDistance()
         {
-            OutputHeading();
+            ConsoleHelper.OutputHeading("Distance Converter");
 
             fromUnit = SelectUnit(" Please select the from distance unit > ");
-            toUnit = SelectUnit(" Please select the to distance unit >.");
+            toUnit = SelectUnit(" Please select the to distance unit > ");
 
             Console.WriteLine($" Converting {fromUnit} to {toUnit}");
             
-            FromDistance = InputDistance($" Please enter the number of {fromUnit} > ");
+            FromDistance = ConsoleHelper.InputNumber($" Please enter the number of {fromUnit} > ");
 
             CalculateDistance();
 
@@ -103,67 +104,35 @@ namespace ConsoleAppProject.App01
         /// Prompts the user to select a unit choice
         /// from one unit to another
         /// </summary>
-        /// <param name="prompt"></param>
-        /// <returns></returns>
         private DistanceUnits SelectUnit(string prompt)
         {
-            string choice = DisplayChoices(prompt);
-
-            DistanceUnits unit = ExecutChoice(choice);
-            Console.WriteLine($"\n You have chosen {unit}");
-            return unit;
-        }
-
-        /// <summary>
-        /// Executes the user choice 
-        /// </summary>
-        /// <param name="choice"></param>
-        /// <returns></returns>
-        private static DistanceUnits ExecutChoice(string choice)
-        {
-            if (choice.Equals("1"))
-            {
-                return DistanceUnits.Feet;
-            }
-            else if (choice == "2")
-            {
-                return DistanceUnits.Metres;
-            }
-            else if (choice.Equals("3"))
-            {
-                return DistanceUnits.Miles;
-            }
-
-            return DistanceUnits.NoUnit;
-        }
-
-        /// <summary>
-        /// Displays the choices for the user
-        /// </summary>
-        /// <param name="prompt"></param>
-        /// <returns></returns>
-        private static string DisplayChoices(string prompt)
-        {
-            Console.WriteLine();
-            Console.WriteLine($" 1. {DistanceUnits.Feet}");
-            Console.WriteLine($" 2. {DistanceUnits.Metres}");
-            Console.WriteLine($" 3. {DistanceUnits.Miles}");
-            Console.WriteLine();
-
             Console.WriteLine(prompt);
-            string choice = Console.ReadLine();
-            return choice;
-        }
 
-        /// <summary>
-        /// Prompt the user to enter the distance amount. 
-        /// Input the distance as a double number
-        /// </summary>
-        private double InputDistance(string prompt)
-        {
-            Console.Write(prompt);
-            string value = Console.ReadLine();
-            return Convert.ToDouble(value);
+            string[] choices = { $" {DistanceUnits.Feet}",
+                                 $" {DistanceUnits.Metres}",
+                                 $" {DistanceUnits.Miles}"};
+
+            int choice = ConsoleHelper.SelectChoice(choices);
+
+            DistanceUnits unit;
+
+            if (choice == 1)
+            {
+                unit = DistanceUnits.Feet;
+            }
+            else if (choice == 2)
+            {
+                unit = DistanceUnits.Metres;
+            }
+            else
+            {
+                unit = DistanceUnits.Miles;
+            }
+
+            Console.WriteLine($" You have selected {unit}");
+            Console.WriteLine();
+
+            return unit;
         }
 
         /// <summary>
@@ -175,16 +144,6 @@ namespace ConsoleAppProject.App01
         {
             Console.WriteLine($"\n {FromDistance}  {fromUnit}" +
                 $" is {ToDistance} {toUnit}!\n");
-        }
-
-        private void OutputHeading()
-        {
-            Console.WriteLine();
-            Console.WriteLine("\n --------------------------------- ");
-            Console.WriteLine("      Coverting Miles/Feet/Metres    ");
-            Console.WriteLine("          by Tyronne Bradburn        ");
-            Console.WriteLine(" ---------------------------------\n ");
-            Console.WriteLine();
         }
     }
 }
