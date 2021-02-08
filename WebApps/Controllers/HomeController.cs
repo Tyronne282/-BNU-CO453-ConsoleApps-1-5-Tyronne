@@ -1,10 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
+using ConsoleAppProject.App02;
 using WebApps.Models;
 
 namespace WebApps.Controllers
@@ -20,6 +16,39 @@ namespace WebApps.Controllers
         public IActionResult DistanceConverter()
         {
             return View();
+        }
+
+        [HttpGet]
+        public IActionResult BmiCalculator()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult BmiCalculator(BmiCalculator bmi)
+        {
+            if (bmi.Centimetres > 140)
+            {
+                bmi.CalculateMetricBMI();
+            }
+            else if (bmi.Feet > 4 && bmi.Stones > 6)
+            {
+                bmi.CalculateImperialBMI();
+            }
+            else
+            {
+                ViewBag.Error = "You have entered values too small for any adult";
+                return View();
+            }
+
+            double bmiIndex = bmi.Index;
+
+            return RedirectToAction("HealthMessage", new { bmiIndex });
+        }
+
+        public IActionResult HealthMessage(double bmiIndex)
+        {
+            return View(bmiIndex);
         }
 
         public IActionResult Privacy()

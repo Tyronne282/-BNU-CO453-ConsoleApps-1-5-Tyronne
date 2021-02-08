@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 
 namespace ConsoleAppProject.App02
 {
@@ -15,7 +16,7 @@ namespace ConsoleAppProject.App02
         Imperial
     }
 
-    public class BMI
+    public class BmiCalculator
     {
         public const double Underweight = 18.5;
         public const double NormalRange = 24.9;
@@ -28,17 +29,27 @@ namespace ConsoleAppProject.App02
         public const int InchesInFeet = 12;
         public const int PoundsInStones = 14;
 
-        private double index;
+        public double Index { get; set; }
 
         // Metric Details
 
-        private double kilograms;
-        private double metres;
+        public double Kilograms { get; set; }
+        public int Centimetres { get; set; }
 
         // Imperial Details
 
-        private double pounds;
-        private int inches;
+        public int Pounds { get; set; }
+        public int Stones { get; set; }
+
+        public int Feet { get; set; }
+        public int Inches { get; set; }
+
+        private double metres;
+
+        public UnitSystem UnitSystem
+        {
+            get => default;
+        }
 
         /// <summary>
         /// The user will select either Metric or Imperial 
@@ -63,19 +74,23 @@ namespace ConsoleAppProject.App02
                 CalculateImperialBMI();
             }
 
-            OutputHealthMessage();
+            Console.WriteLine(GetHealthMessage());
+            Console.WriteLine(GetBameMessage());
         }
 
         public double CalculateMetricBMI()
         {
-            index = kilograms / (metres * metres);
-            return index;
+            Index = Kilograms / (metres * metres);
+            return Index;
         }
 
         public double CalculateImperialBMI()
         {
-            index = pounds * 703 / (inches * inches);
-            return index;
+            Inches += Feet * InchesInFeet;
+            Pounds += Stones * PoundsInStones;
+
+            Index = (double)Pounds * 703 / (Inches * Inches);
+            return Index;
         }
 
         /// <summary>
@@ -105,23 +120,18 @@ namespace ConsoleAppProject.App02
         /// </summary>
         private void InputImperialDetails()
         {
-            Console.WriteLine(
-                " Enter your height in feet and inches ");
-            double feet = ConsoleHelper.InputNumber(
-                "\n Enter your height in feet > ");
-            inches = (int)ConsoleHelper.InputNumber(
-                " Enter your height in inches > ");
+            Console.WriteLine(" Enter your height to the neareat feet and inches ");
+            Console.WriteLine();
 
-            inches += (int)feet * InchesInFeet;
+            Feet = (int)ConsoleHelper.InputNumber("\n Enter your height in feet > ");
+            Inches = (int)ConsoleHelper.InputNumber("\n Enter your height in inches > ");
 
-            Console.WriteLine(
-                " Enter your weight in stones and pounds");
-            double stones = ConsoleHelper.InputNumber(
-                " Enter your weight in stones > ");
-            pounds = ConsoleHelper.InputNumber(
-                " Enter your weight in pounds > ");
+            Console.WriteLine();
+            Console.WriteLine(" Enter your height to the neareat feet and inches ");
+            Console.WriteLine();
 
-            pounds += stones * PoundsInStones;
+            Stones = (int)ConsoleHelper.InputNumber("\n Enter your height in stones > ");
+            Pounds = (int)ConsoleHelper.InputNumber("\n Enter your height in pounds > ");
         }
 
         /// <summary>
@@ -130,10 +140,12 @@ namespace ConsoleAppProject.App02
         /// </summary>
         private void InputMetricDetails()
         {
-            metres = ConsoleHelper.InputNumber(
-                " \n Enter your height in metres > ");
+            Centimetres =(int) ConsoleHelper.InputNumber(
+                " Enter your height in metres > ");
 
-            kilograms = ConsoleHelper.InputNumber(
+            metres = (double)Centimetres / 100;
+
+            Kilograms = ConsoleHelper.InputNumber(
                 " Enter your weight in kilograms > ");
         }
 
@@ -141,64 +153,66 @@ namespace ConsoleAppProject.App02
         /// Output the users BMI and their weight
         /// category from underweight to obese.
         /// </summary>
-        private void OutputHealthMessage()
+        public string GetHealthMessage()
         {
-            if (index < Underweight)
+            StringBuilder message = new StringBuilder("\n");
+
+            if (Index < Underweight)
             {
-                Console.WriteLine($" Your BMI is {index}, " +
+                message.Append($" Your BMI is {Index:0.00}, " +
                     $"You are underweight! ");
             }
-            else if (index <= NormalRange)
+            else if (Index <= NormalRange)
             {
-                Console.WriteLine($" Your BMI is {index}, " +
+                message.Append($" Your BMI is {Index:0.00}, " +
                     $"You are in the normal range! ");
 
             }
-            else if (index <= Overweight)
+            else if (Index <= Overweight)
             {
-                Console.WriteLine($" Your BMI is {index}, " +
+                message.Append($" Your BMI is {Index:0.00}, " +
                     $"You are overweight! ");
 
             }
-            else if (index <= ObeseLevel1)
+            else if (Index <= ObeseLevel1)
             {
-                Console.WriteLine($" Your BMI is {index}, " +
+                message.Append($" Your BMI is {Index:0.00}, " +
                     $"You are obese class I ");
 
             }
-            else if (index <= ObeseLevel2)
+            else if (Index <= ObeseLevel2)
             {
-                Console.WriteLine($" Your BMI is {index}, " +
+                message.Append($" Your BMI is {Index:0.00}, " +
                     $"You are obese class II ");
 
             }
-            else if (index <= ObeseLevel3)
+            else if (Index <= ObeseLevel3)
             {
-                Console.WriteLine($" Your BMI is {index}, " +
+                message.Append($" Your BMI is {Index:0.00}, " +
                     $"You are obese class III ");
 
             }
 
-            OutputBameMessage();
+            return message.ToString();
+            
         }
 
         /// <summary>
         /// Output a message for BAME users who are
         /// at higher risk
         /// </summary>
-        private void OutputBameMessage()
+        public string GetBameMessage()
         {
-            Console.WriteLine();
-            Console.WriteLine(
-                " If you are Black, Asian or other minority");
-            Console.WriteLine(
-                " ethnic groups, you have a higher risk");
-            Console.WriteLine();
-            Console.WriteLine(
-                "\t Adults 23.0 or more are at increased risk");
-            Console.WriteLine(
-                "\t Adults 27.5 or more are at high risk");
-            Console.WriteLine();
+            StringBuilder message = new StringBuilder("\n");
+            
+            message.Append(" If you are Black, Asian or other minority");
+            message.Append(" ethnic groups, you have a higher risk");
+            message.Append("\n");
+            message.Append("\t Adults 23.0 or more are at increased risk");
+            message.Append("\t Adults 27.5 or more are at high risk");
+            message.Append("\n");
+
+            return message.ToString();
         }
     }
 }
