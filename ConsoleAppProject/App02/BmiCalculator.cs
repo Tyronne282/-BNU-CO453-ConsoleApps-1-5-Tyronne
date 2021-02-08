@@ -127,7 +127,7 @@ namespace ConsoleAppProject.App02
             Inches = (int)ConsoleHelper.InputNumber("\n Enter your height in inches > ");
 
             Console.WriteLine();
-            Console.WriteLine(" Enter your height to the neareat feet and inches ");
+            Console.WriteLine(" Enter your height to the neareat Stones and Pounds ");
             Console.WriteLine();
 
             Stones = (int)ConsoleHelper.InputNumber("\n Enter your height in stones > ");
@@ -141,7 +141,7 @@ namespace ConsoleAppProject.App02
         private void InputMetricDetails()
         {
             Centimetres =(int) ConsoleHelper.InputNumber(
-                " Enter your height in metres > ");
+                " Enter your height in Centimetres > ");
 
             metres = (double)Centimetres / 100;
 
