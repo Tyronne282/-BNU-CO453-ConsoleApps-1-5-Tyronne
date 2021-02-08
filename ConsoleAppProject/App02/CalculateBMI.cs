@@ -2,7 +2,7 @@
 
 namespace ConsoleAppProject.App02
 {
-    class ggBMI
+    class CalculateBMI
     {
         //<summary>
         //This gets the user's weight and height and converts it to a double.
