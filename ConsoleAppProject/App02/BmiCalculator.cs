@@ -4,10 +4,14 @@ using System.Text;
 namespace ConsoleAppProject.App02
 {
     /// <summary>
-    /// Please describe the main features of this App
+    /// The user will enter thier hieght and weight 
+    /// using the metric system or the imperial system
+    /// then thw app will calculate their index and
+    /// outputs a message if they are underweight, normal
+    /// weight, overweight or obese.
     /// </summary>
     /// <author>
-    /// Student Name version 0.1
+    /// Tyronne Bradburn 1.0
     /// </author>
 
     public enum UnitSystem
@@ -120,7 +124,7 @@ namespace ConsoleAppProject.App02
         /// </summary>
         private void InputImperialDetails()
         {
-            Console.WriteLine(" Enter your height to the neareat feet and inches ");
+            Console.WriteLine("\n Enter your height to the neareat feet and inches ");
             Console.WriteLine();
 
             Feet = (int)ConsoleHelper.InputNumber("\n Enter your height in feet > ");
@@ -141,12 +145,12 @@ namespace ConsoleAppProject.App02
         private void InputMetricDetails()
         {
             Centimetres =(int) ConsoleHelper.InputNumber(
-                " Enter your height in Centimetres > ");
+                "\n Enter your height in Centimetres > ");
 
             metres = (double)Centimetres / 100;
 
             Kilograms = ConsoleHelper.InputNumber(
-                " Enter your weight in kilograms > ");
+                "\n Enter your weight in kilograms > ");
         }
 
         /// <summary>
@@ -206,10 +210,10 @@ namespace ConsoleAppProject.App02
             StringBuilder message = new StringBuilder("\n");
             
             message.Append(" If you are Black, Asian or other minority");
-            message.Append(" ethnic groups, you have a higher risk");
+            message.Append("\n ethnic groups, you have a higher risk");
             message.Append("\n");
-            message.Append("\t Adults 23.0 or more are at increased risk");
-            message.Append("\t Adults 27.5 or more are at high risk");
+            message.Append("\n Adults 23.0 or more are at increased risk");
+            message.Append("\n Adults 27.5 or more are at high risk");
             message.Append("\n");
 
             return message.ToString();

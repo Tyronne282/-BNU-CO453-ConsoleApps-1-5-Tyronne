@@ -30,7 +30,8 @@ namespace ConsoleAppProject
         }
 
         /// <summary>
-        /// 
+        /// Displays the choices for the user in the app 
+        /// selector and the choices within the apps.
         /// </summary>
         private static void DisplayChoices(string[] choices)
         {
@@ -44,7 +45,9 @@ namespace ConsoleAppProject
         }
 
         /// <summary>
-        /// 
+        /// The user must use a number within the list 
+        /// shown otherwise it will output invalid number
+        /// message.
         /// </summary>
         public static double InputNumber(string prompt)
         {
@@ -72,7 +75,8 @@ namespace ConsoleAppProject
         }
 
         /// <summary>
-        /// 
+        /// The user cannot use a number lower than a set
+        /// minimum number or a set maximum number.
         /// </summary>
         public static double InputNumber(string prompt, double min, double max)
         {

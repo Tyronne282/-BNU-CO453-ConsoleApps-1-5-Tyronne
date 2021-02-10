@@ -57,10 +57,10 @@ namespace ConsoleAppProject.App01
         {
             ConsoleHelper.OutputHeading("Distance Converter");
 
-            fromUnit = SelectUnit(" Please select the from distance unit > ");
-            toUnit = SelectUnit(" Please select the to distance unit > ");
+            fromUnit = SelectUnit(" Please select the distance unit > ");
+            toUnit = SelectUnit(" Please select the distance unit > ");
 
-            Console.WriteLine($" Converting {fromUnit} to {toUnit}");
+            Console.WriteLine($"\n Converting {fromUnit} to {toUnit}");
             
             FromDistance = ConsoleHelper.InputNumber($" Please enter the number of {fromUnit} > ");
 
@@ -129,7 +129,7 @@ namespace ConsoleAppProject.App01
                 unit = DistanceUnits.Miles;
             }
 
-            Console.WriteLine($" You have selected {unit}");
+            Console.WriteLine($"\n You have selected {unit}");
             Console.WriteLine();
 
             return unit;

@@ -27,7 +27,7 @@ namespace WebApps.Controllers
         [HttpPost]
         public IActionResult BmiCalculator(BmiCalculator bmi)
         {
-            if (bmi.Centimetres > 140)
+            if (bmi.Centimetres > 140 && bmi.Kilograms > 10)
             {
                 bmi.CalculateMetricBMI();
             }
