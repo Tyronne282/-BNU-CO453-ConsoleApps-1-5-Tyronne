@@ -1,4 +1,6 @@
 ﻿@model ConsoleAppProject.App01.DistanceConverter
+@using ConsoleAppProject.App01
+
 @{
     ViewData["Title"] = "TB DistanceConverter";
 }
@@ -10,5 +12,59 @@
         to another selected distance,
     </p>
 </header>
+
+<form method="post">
+
+    <h2>Covert from</h2>
+
+    <p>
+        <label>From unit: </label>
+        <select asp-for="@Model.FromUnit">
+            <option>@DistanceConverter.MILES</option>
+            <option>@DistanceConverter.METRES</option>
+            <option>@DistanceConverter.FEET</option>
+        </select>
+    </p>
+
+    <p>
+        @if (Model.FromDistance == 0)
+        {
+            <input type="text" asp-for="@Model.FromDistance" value=""
+                   placeholder="From Distance" required />
+        }
+        else
+        {
+            <input type="text" asp-for="@Model.FromDistance"
+                   placeholder="From Distance" required />
+        }
+    </p>
+
+    <h2>Convert to:</h2>
+    <p>
+        <label>To unit: </label>
+        <select asp-for="@Model.ToUnit">
+            <option>@DistanceConverter.MILES</option>
+            <option>@DistanceConverter.METRES</option>
+            <option>@DistanceConverter.FEET</option>
+        </select>
+    </p>
+    <p>
+        @if (Model.ToDistance == 0)
+        {
+            <input type="text" asp-for="@Model.ToDistance" value=""
+                   placeholder="To Distance" readonly />
+        }
+        else
+        {
+            <input type="text" asp-for="@Model.ToDistance"
+                   value="@Model.ToDistance.ToString("0.00")"
+                   placeholder="To Distance" readonly />
+        }
+    </p>
+
+    <p>
+        <button class="btn btn-success" type="submit">Calculate</button>
+    </p>
+</form>
 
 

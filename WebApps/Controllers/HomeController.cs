@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using ConsoleAppProject.App01;
 using ConsoleAppProject.App02;
 using WebApps.Models;
+
 
 namespace WebApps.Controllers
 {
@@ -13,9 +15,14 @@ namespace WebApps.Controllers
             return View();
         }
 
-        public IActionResult DistanceConverter()
+        public IActionResult DistanceConverter(DistanceConverter converter)
         {
-            return View();
+            if(converter.FromDistance > 0)
+            {
+                converter.CalculateDistance();
+            }
+
+            return View(converter);
         }
 
         [HttpGet]
