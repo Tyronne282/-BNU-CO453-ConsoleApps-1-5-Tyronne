@@ -19,6 +19,10 @@ namespace ConsoleAppProject
                 Console.WriteLine();
         }
 
+        /// <summary>
+        /// User will select their choice from the 
+        /// list.
+        /// </summary>
         public static int SelectChoice(string[] choices)
         {
             DisplayChoices(choices);
@@ -81,7 +85,7 @@ namespace ConsoleAppProject
         public static double InputNumber(string prompt, double min, double max)
         {
             bool isValid = false;
-            double number = 0;
+            double number;
 
             do
             {

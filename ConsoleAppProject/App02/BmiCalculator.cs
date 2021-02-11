@@ -48,7 +48,7 @@ namespace ConsoleAppProject.App02
         public int Feet { get; set; }
         public int Inches { get; set; }
 
-        private double metres;
+        public double Metres { get; set; }
 
         public UnitSystem UnitSystem
         {
@@ -82,18 +82,31 @@ namespace ConsoleAppProject.App02
             Console.WriteLine(GetBameMessage());
         }
 
+        /// <summary>
+        /// Method to calculate BMI using the 
+        /// metric system
+        /// </summary>
+        /// <returns></returns>
         public double CalculateMetricBMI()
         {
-            Index = Kilograms / (metres * metres);
+            Metres = Metres + (double)Centimetres / 100;
+            Index = Kilograms / (Metres * Metres);
+
             return Index;
         }
 
+        /// <summary>
+        /// Method to calculate BMI using the 
+        /// Imperial system 
+        /// </summary>
+        /// <returns></returns>
         public double CalculateImperialBMI()
         {
             Inches += Feet * InchesInFeet;
             Pounds += Stones * PoundsInStones;
 
             Index = (double)Pounds * 703 / (Inches * Inches);
+
             return Index;
         }
 
@@ -147,7 +160,7 @@ namespace ConsoleAppProject.App02
             Centimetres =(int) ConsoleHelper.InputNumber(
                 "\n Enter your height in Centimetres > ");
 
-            metres = (double)Centimetres / 100;
+            Metres = (double)Centimetres / 100;
 
             Kilograms = ConsoleHelper.InputNumber(
                 "\n Enter your weight in kilograms > ");
