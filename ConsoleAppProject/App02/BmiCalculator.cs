@@ -160,8 +160,6 @@ namespace ConsoleAppProject.App02
             Centimetres =(int) ConsoleHelper.InputNumber(
                 "\n Enter your height in Centimetres > ");
 
-            Metres = (double)Centimetres / 100;
-
             Kilograms = ConsoleHelper.InputNumber(
                 "\n Enter your weight in kilograms > ");
         }
