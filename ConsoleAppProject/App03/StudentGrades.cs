@@ -5,7 +5,9 @@ using System.Text;
 namespace ConsoleAppProject.App03
 {
     /// <summary>
-    /// 
+    /// The App will prompt the user to input a mark
+    /// for each student in the list and the user will
+    /// be able to get a mean mark for each student.
     /// </summary>
     public class StudentGrades
     {
@@ -66,7 +68,7 @@ namespace ConsoleAppProject.App03
         }
 
         /// <summary>
-        /// 
+        /// This method will convert the marks to a grade
         /// </summary>
         public Grades ConvertToGrade(int mark)
         {
@@ -101,7 +103,8 @@ namespace ConsoleAppProject.App03
         }
 
         /// <summary>
-        /// 
+        /// This method will calculate the mean mark
+        /// for each student.
         /// </summary>
         public void CalculateStats()
         {
