@@ -13,8 +13,8 @@ namespace ConsoleAppProject
         {
                 Console.WriteLine();
                 Console.WriteLine("\n --------------------------------- ");
-                Console.WriteLine($"               {title}              ");
-                Console.WriteLine("          by Tyronne Bradburn        ");
+                Console.WriteLine($"\t{title}                           ");
+                Console.WriteLine("         by Tyronne Bradburn         ");
                 Console.WriteLine(" ---------------------------------\n ");
                 Console.WriteLine();
         }
