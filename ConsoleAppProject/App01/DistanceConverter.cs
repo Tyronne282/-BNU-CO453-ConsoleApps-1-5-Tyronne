@@ -67,6 +67,8 @@ namespace ConsoleAppProject.App01
             CalculateDistance();
 
             OutputDistance();
+
+            QuitOption();
         }
 
         /// <summary>
@@ -144,6 +146,34 @@ namespace ConsoleAppProject.App01
         {
             Console.WriteLine($"\n {FromDistance}  {FromUnit}" +
                 $" is {ToDistance} {ToUnit}!\n");
+        }
+
+        /// <summary>
+        /// Lets the user to quit the App or to return to convert 
+        /// another Distance.
+        /// </summary>
+        private void QuitOption()
+        {
+            Console.WriteLine("\n Do you want to quit the App? (y/n) > ");
+
+            string choice = Console.ReadLine();
+
+            if (choice == "y")
+            {
+                Console.WriteLine(" Thank you for using the Distance Converter");
+                Environment.Exit(0);
+            }
+
+            else if (choice == "n")
+            {
+                ConvertDistance();
+            }
+
+            else
+            {
+                Console.WriteLine(" Invaild Input ");
+                QuitOption();
+            }
         }
     }
 }
