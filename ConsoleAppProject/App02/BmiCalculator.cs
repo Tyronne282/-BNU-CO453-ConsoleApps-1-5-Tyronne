@@ -3,16 +3,6 @@ using System.Text;
 
 namespace ConsoleAppProject.App02
 {
-    /// <summary>
-    /// The user will enter thier hieght and weight 
-    /// using the metric system or the imperial system
-    /// then thw app will calculate their index and
-    /// outputs a message if they are underweight, normal
-    /// weight, overweight or obese.
-    /// </summary>
-    /// <author>
-    /// Tyronne Bradburn 1.0
-    /// </author>
 
     public enum UnitSystem
     {
@@ -20,6 +10,16 @@ namespace ConsoleAppProject.App02
         Imperial
     }
 
+    /// <summary>
+    /// The user will enter thier hieght and weight 
+    /// using the metric system or the imperial system
+    /// then the app will calculate their index and
+    /// outputs a message if they are underweight, normal
+    /// weight, overweight or obese.
+    /// </summary>
+    /// <author>
+    /// Tyronne Bradburn 1.0
+    /// </author>
     public class BmiCalculator
     {
         public const double Underweight = 18.5;
