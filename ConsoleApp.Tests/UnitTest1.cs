@@ -1,5 +1,5 @@
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ConsoleAppProject.App01;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace ConsoleApp.Tests
 {
@@ -10,7 +10,6 @@ namespace ConsoleApp.Tests
         public void TestMilesToFeet()
         {
             // Arrange stage - created converter, initialised all values
-
             DistanceConverter converter = new DistanceConverter();
 
             converter.FromUnit = DistanceUnits.Miles;
@@ -19,13 +18,11 @@ namespace ConsoleApp.Tests
             converter.FromDistance = 1.0;
 
             // Act stage
-
             converter.CalculateDistance();
 
             double expectedDistance = 5280;
 
             // Assert stage
-
             Assert.AreEqual(expectedDistance, converter.ToDistance);
         }
 
