@@ -143,15 +143,11 @@ namespace ConsoleAppProject.App03
             {
                 return Grades.B;
             }
-            else if (mark >= LowestGradeA && mark < HighestMark)
+            else if (mark >= LowestGradeA && mark <= HighestMark)
             {
                 return Grades.A;
             }
-            else if (mark == HighestMark)
-            {
-                return Grades.A;
-            }
-            else
+            
             {
                 return Grades.NULL;
             }
@@ -178,7 +174,6 @@ namespace ConsoleAppProject.App03
 
             Mean = total / Marks.Length;
 
-            OutputStats();
         }
 
 
@@ -220,7 +215,7 @@ namespace ConsoleAppProject.App03
         /// </summary>
         private void OutputGradeProfile()
         {
-            Grades grade = Grades.F;
+            Grades grade = Grades.NULL;
             Console.WriteLine();
 
             foreach (int count in GradeProfile)
@@ -229,8 +224,6 @@ namespace ConsoleAppProject.App03
                 Console.WriteLine($"Grade {grade} {percentage}% Count {count}");
                 grade++;
             }
-
-            Console.WriteLine();
         }
     }
 }
