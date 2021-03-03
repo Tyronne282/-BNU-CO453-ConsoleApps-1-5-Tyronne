@@ -33,6 +33,9 @@ namespace ConsoleAppProject.App02
         public const int InchesInFeet = 12;
         public const int PoundsInStones = 14;
 
+        public const int CENTIMETRES_INTO_METRES = 100;
+        public const int POUNDS_IN_STONES = 703;
+
         public double Index { get; set; }
 
         // Metric Details
@@ -89,7 +92,7 @@ namespace ConsoleAppProject.App02
         /// <returns></returns>
         public double CalculateMetricBMI()
         {
-            Metres = Metres + (double)Centimetres / 100;
+            Metres = Metres + (double)Centimetres / CENTIMETRES_INTO_METRES;
             Index = Kilograms / (Metres * Metres);
 
             return Index;
@@ -105,7 +108,7 @@ namespace ConsoleAppProject.App02
             Inches += Feet * InchesInFeet;
             Pounds += Stones * PoundsInStones;
 
-            Index = (double)Pounds * 703 / (Inches * Inches);
+            Index = (double)Pounds * POUNDS_IN_STONES / (Inches * Inches);
 
             return Index;
         }
@@ -137,18 +140,12 @@ namespace ConsoleAppProject.App02
         /// </summary>
         private void InputImperialDetails()
         {
-            Console.WriteLine("\n Enter your height to the neareat feet and inches ");
-            Console.WriteLine();
 
-            Feet = (int)ConsoleHelper.InputNumber("\n Enter your height in feet > ");
-            Inches = (int)ConsoleHelper.InputNumber("\n Enter your height in inches > ");
+            Feet = (int)ConsoleHelper.InputNumber("\n Enter your height in feet > ", 0, 10); 
+            Inches = (int)ConsoleHelper.InputNumber("\n Enter your height in inches > ", 0, 50);
 
-            Console.WriteLine();
-            Console.WriteLine(" Enter your height to the neareat Stones and Pounds ");
-            Console.WriteLine();
-
-            Stones = (int)ConsoleHelper.InputNumber("\n Enter your height in stones > ");
-            Pounds = (int)ConsoleHelper.InputNumber("\n Enter your height in pounds > ");
+            Stones = (int)ConsoleHelper.InputNumber("\n Enter your height in stones > ", 0, 30);
+            Pounds = (int)ConsoleHelper.InputNumber("\n Enter your height in pounds > ", 0, 300);
         }
 
         /// <summary>
@@ -158,10 +155,10 @@ namespace ConsoleAppProject.App02
         private void InputMetricDetails()
         {
             Centimetres =(int) ConsoleHelper.InputNumber(
-                "\n Enter your height in Centimetres > ");
+                "\n Enter your height in Centimetres > ", 0, 300);
 
             Kilograms = ConsoleHelper.InputNumber(
-                "\n Enter your weight in kilograms > ");
+                "\n Enter your weight in kilograms > ", 0, 150);
         }
 
         /// <summary>
