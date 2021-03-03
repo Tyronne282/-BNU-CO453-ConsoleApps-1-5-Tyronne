@@ -1,5 +1,6 @@
 ﻿using ConsoleAppProject.App01;
 using ConsoleAppProject.App02;
+using ConsoleAppProject.App03;
 using System;
 
 namespace ConsoleAppProject
@@ -18,13 +19,17 @@ namespace ConsoleAppProject
 
         private static BmiCalculator calculator = new BmiCalculator();
 
+        private static StudentGrades studentGrades = new StudentGrades();
+
         public static void Main(string[] args)
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
 
             ConsoleHelper.OutputHeading("BNU CO453 Applications Programming 2020-2021!");
 
-            string[] choices = { "Distance Converter", "BMI Calculater" };
+            string[] choices = { "Distance Converter", "BMI Calculater",
+                                 "Student Grades"};
+
             int choiceNo = ConsoleHelper.SelectChoice(choices);
 
             if (choiceNo == 1)
@@ -34,6 +39,10 @@ namespace ConsoleAppProject
             else if (choiceNo == 2)
             {
                 calculator.CalculateIndex();
+            }
+            else if (choiceNo == 3)
+            {
+                studentGrades.OutputMenu();
             }
             else Console.WriteLine("Invalid choice ! ");
         }
