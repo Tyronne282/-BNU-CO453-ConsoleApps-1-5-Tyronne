@@ -127,7 +127,7 @@ namespace ConsoleAppProject.App03
         /// </summary>
         public Grades ConvertToGrade(int mark)
         {
-            if (mark > LowestMark && mark < LowestGradeD)
+            if (mark >= LowestMark && mark < LowestGradeD)
             {
                 return Grades.F;
             }
