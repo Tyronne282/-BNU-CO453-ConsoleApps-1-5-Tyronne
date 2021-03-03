@@ -12,7 +12,7 @@ namespace ConsoleAppProject.App03
     public enum Grades
     {
         [Description("No grade has been given")]
-        NULL,
+        UNGRADED,
         [Description("Fail")]
         F,
         [Description("Third Class")]
