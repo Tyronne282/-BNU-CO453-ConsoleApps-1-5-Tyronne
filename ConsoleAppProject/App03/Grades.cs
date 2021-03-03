@@ -11,8 +11,6 @@ namespace ConsoleAppProject.App03
     /// </summary>
     public enum Grades
     {
-        [Description("No grade has been given")]
-        UNGRADED,
         [Description("Fail")]
         F,
         [Description("Third Class")]
@@ -22,7 +20,9 @@ namespace ConsoleAppProject.App03
         [Description("Upper Second")]
         B,
         [Description("First Class")]
-        A
+        A,
+        [Description("No grade has been given")]
+        N
     }
 
 }

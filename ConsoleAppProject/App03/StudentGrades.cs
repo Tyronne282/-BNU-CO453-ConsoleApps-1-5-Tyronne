@@ -127,7 +127,7 @@ namespace ConsoleAppProject.App03
         /// </summary>
         public Grades ConvertToGrade(int mark)
         {
-            if (mark > LowestMark && mark < LowestGradeD)
+            if (mark >= LowestMark && mark < LowestGradeD)
             {
                 return Grades.F;
             }
@@ -149,7 +149,7 @@ namespace ConsoleAppProject.App03
             }
             
             {
-                return Grades.UNGRADED;
+                return Grades.N;
             }
         }
 
@@ -215,7 +215,7 @@ namespace ConsoleAppProject.App03
         /// </summary>
         private void OutputGradeProfile()
         {
-            Grades grade = Grades.UNGRADED;
+            Grades grade = Grades.N;
             Console.WriteLine();
 
             foreach (int count in GradeProfile)
