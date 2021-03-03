@@ -145,7 +145,7 @@ namespace ConsoleAppProject.App01
         private void OutputDistance()
         {
             Console.WriteLine($"\n {FromDistance}  {FromUnit}" +
-                $" is {ToDistance} {ToUnit}!\n");
+                $" is {ToDistance:0.00} {ToUnit}!\n");
         }
 
         /// <summary>
