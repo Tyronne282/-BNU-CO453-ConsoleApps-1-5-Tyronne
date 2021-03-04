@@ -41,7 +41,7 @@ namespace ConsoleAppProject.App03
                 "Tyronne","Roche","Xavier",
                 "Megan","Klaudia","Katy",
                 "Einike","Goncalo","Josh",
-                "Sakura"
+                "Saki"
             };
 
             GradeProfile = new int[(int)Grades.A + 1];
