@@ -176,7 +176,6 @@ namespace ConsoleAppProject.App03
 
         }
 
-
         /// <summary>
         /// Outputs the Mean, Max Mark and Min Mark
         /// for the Students
@@ -187,9 +186,7 @@ namespace ConsoleAppProject.App03
             Console.WriteLine($"\tMean Mark = {Mean:0.0}");
             Console.WriteLine($"\tMinimum Mark = {Minimum}");
             Console.WriteLine($"\tMaximum Mark = {Maximum}");
-
         }
-
 
         /// <summary>
         /// This method will calculate and display 
