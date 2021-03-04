@@ -147,7 +147,7 @@ namespace ConsoleAppProject.App03
             {
                 return Grades.A;
             }
-            
+            else
             {
                 return Grades.UNGRADED;
             }
