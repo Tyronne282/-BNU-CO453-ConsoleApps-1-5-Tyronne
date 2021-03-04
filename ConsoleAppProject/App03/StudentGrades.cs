@@ -12,7 +12,6 @@ namespace ConsoleAppProject.App03
     public class StudentGrades
     {
         // Constants (Grade Boundaries)
-
         public const int LowestMark = 0;
         public const int LowestGradeD = 40;
         public const int LowestGradeC = 50;
@@ -21,17 +20,11 @@ namespace ConsoleAppProject.App03
         public const int HighestMark = 100;
 
         // Properties 
-
         public string [] Students { get; set; }
-
         public int[] Marks { get; set; }
-        
         public int[] GradeProfile { get; set; }
-
         public double Mean { get; set; }
-
         public int Minimum { get; set; }
-
         public int Maximum { get; set; }
 
         /// <summary>
