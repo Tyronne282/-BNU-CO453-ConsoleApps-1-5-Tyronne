@@ -9,7 +9,6 @@ namespace ConsoleAppProject
     /// The main method in this class is called first
     /// when the application is started.  It will be used
     /// to start Apps 01 to 05 for CO453 CW1
-    /// 
     /// This Project has been modified by:
     /// Tyronne Bradburn 29/01/2021
     /// </summary>

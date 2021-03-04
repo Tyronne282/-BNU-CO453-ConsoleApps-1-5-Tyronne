@@ -9,6 +9,9 @@ namespace ConsoleAppProject.App03
     /// for each student in the list and the user will
     /// be able to get a mean mark for each student.
     /// </summary>
+    /// <Author>
+    /// Tyronne Bradburn 1.0
+    /// </Author>
     public class StudentGrades
     {
         // Constants (Grade Boundaries)
