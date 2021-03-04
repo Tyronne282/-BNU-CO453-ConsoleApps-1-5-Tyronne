@@ -31,7 +31,8 @@ namespace ConsoleAppProject.App03
         public int Maximum { get; set; }
 
         /// <summary>
-        /// 
+        /// A list of Student Names with their marks 
+        /// and grades 
         /// </summary>
         public StudentGrades()
         {
