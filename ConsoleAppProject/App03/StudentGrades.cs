@@ -22,6 +22,10 @@ namespace ConsoleAppProject.App03
         public const int LowestGradeA = 70;
         public const int HighestMark = 100;
 
+        // Constant (Used to workout a percentage by times
+        // it by 100)
+        public const int PERCENT_HUNDRED = 100;
+
         // Properties 
         public string [] Students { get; set; }
         public int[] Marks { get; set; }
@@ -214,7 +218,7 @@ namespace ConsoleAppProject.App03
 
             foreach (int count in GradeProfile)
             {
-                int percentage = count * 100 / Marks.Length;
+                int percentage = count * PERCENT_HUNDRED / Marks.Length;
                 Console.WriteLine($"Grade {grade} {percentage}% Count {count}");
                 grade++;
             }
