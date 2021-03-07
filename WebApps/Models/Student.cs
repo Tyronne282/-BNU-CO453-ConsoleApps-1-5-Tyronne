@@ -7,6 +7,7 @@ namespace WebApps.Models
     public class Student
     {
         public int StudentId { get; set; }
+        public int Model.Count { get; set; }
 
         [StringLength(20), Required]
         public string Name { get; set; }
