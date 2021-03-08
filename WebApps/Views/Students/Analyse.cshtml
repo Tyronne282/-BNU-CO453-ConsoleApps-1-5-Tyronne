@@ -1,5 +1,6 @@
-﻿@model ConsoleAppProject.App03.StudentGrades
-@using ConsoleAppProject.App03
+﻿@model ConsoleAppProject.App03.StudentGrades;
+@using ConsoleAppProject.App03;
+@using System.ComponentModel.DataAnnotations;
 
 @{
     ViewData["Title"] = "Analyse";
@@ -12,61 +13,6 @@
         Displays the statistics of the marks gained and
         displays the percentage of the student grades.
     </p>
-
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-        google.charts.load('current', { 'packages': ['corechart'] });
-        google.charts.setOnLoadCallback(drawChart);
-
-        @{ 
-            int first = 0;
-            int second = 0;
-            int secondII = 0;
-            int third = 0;
-            int failed = 0;
-            int marks = 0;
-
-            foreach (var item in Model)
-            {
-                if (item.Mark >= 70)
-                    first += 1;
-                else if (item.Mark >= 60)
-                    second += 1;
-                else if (item.Mark >= 50)
-                    secondII += 1;
-                else if (item.Mark >= 40)
-                    third += 1;
-                else
-                    failed++;
-
-                marks += item.Mark;
-            }
-
-            marks = marks / Model.Count();
-
-        }
-
-        function drawChart()
-        {
-            var data = google.visualization.arrayToDataTable([
-                ['Grades', 'Number of Students'],
-                ['First Class', @first],
-                ['Upper Second Class', @second],
-                ['Lower Second Class', @secondII],
-                ['Third Class', @third],
-                ['Failed', @failed],
-            ]);
-        }
-
-        var options = {
-            title: 'Student Grades data based on @Model.Count() students, Average student marks: @marks'
-        };
-
-        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-
-        chart.draw(data, options);
-
-    </script>
 </header>
 <section>
     <h2>Statistics</h2>

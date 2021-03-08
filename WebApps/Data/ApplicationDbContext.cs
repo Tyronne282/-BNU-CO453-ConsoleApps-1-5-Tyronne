@@ -14,6 +14,6 @@ namespace WebApps.Data
         {
         }
 
-        public DbSet<ConsoleAppProject.App03.StudentGrades> Students { get; set; }
+        public DbSet<Student> Students { get; set; }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 
@@ -13,6 +14,5 @@ namespace WebApps.Models
 
         [Range(0, 100)]
         public int Mark { get; set; }
-
     }
 }
