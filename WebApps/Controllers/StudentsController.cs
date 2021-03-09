@@ -40,7 +40,8 @@ namespace WebApps.Controllers
 
             foreach (Student student in students)
             {
-                grades.Students[index] = student.Name; 
+                grades.Students[index] = student.FirstName;
+                grades.Students[index] = student.LastName;
                 grades.Marks[index] = student.Mark;
                 index++;
             }
