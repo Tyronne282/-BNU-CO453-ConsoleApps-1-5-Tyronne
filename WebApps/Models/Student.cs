@@ -12,7 +12,7 @@ namespace WebApps.Models
         [StringLength(20), Required]
         public string FirstName { get; set; }
 
-        [StringLength(20), Required]
+        [StringLength(20)]
         public string LastName { get; set; }
 
         [Range(0, 100)]

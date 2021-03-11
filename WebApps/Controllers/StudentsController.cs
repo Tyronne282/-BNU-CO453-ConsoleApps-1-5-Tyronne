@@ -41,7 +41,6 @@ namespace WebApps.Controllers
             foreach (Student student in students)
             {
                 grades.Students[index] = student.FirstName;
-                grades.Students[index] = student.LastName;
                 grades.Marks[index] = student.Mark;
                 index++;
             }
@@ -81,7 +80,7 @@ namespace WebApps.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("StudentId,Name,Mark")] Student student)
+        public async Task<IActionResult> Create([Bind("StudentId,FirstName,LastName,Mark")] Student student)
         {
             if (ModelState.IsValid)
             {
@@ -113,7 +112,7 @@ namespace WebApps.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("StudentId,Name,Mark")] Student student)
+        public async Task<IActionResult> Edit(int id, [Bind("StudentId,FirstName,LastName,Mark")] Student student)
         {
             if (id != student.StudentId)
             {
