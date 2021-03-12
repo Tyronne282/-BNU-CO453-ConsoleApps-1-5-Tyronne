@@ -6,112 +6,113 @@
     ViewData["Title"] = "Analyse";
 }
 
-<header class="text-center jumbotron justify-content-center">
+<html>
+<head>
     <h1>Analyse Grades</h1>
     <h2>by Tyronne Bradburn</h2>
     <p>
         Displays the statistics of the marks gained and
         displays the percentage of the student grades.
     </p>
-    <script type="text/javascript" src="https://wwww.gstatic.com/charts/loader.js"></script>
+    @{
+        int first = 0;
+        int second = 0;
+        int secondII = 0;
+        int third = 0;
+        int failed = 0;
+        int marks = 0;
+
+        foreach (var item in Model.Marks)
+        {
+            if (item >= 70)
+                first += 1;
+            else if (item >= 60)
+                second++;
+            else if (item >= 50)
+                secondII++;
+            else if (item >= 40)
+                third++;
+            else
+                failed++;
+
+            marks += item;
+        }
+
+        marks = marks / Model.Marks.Count();
+    }
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
         google.charts.load('current', { 'packages': ['corechart'] });
         google.charts.setOnLoadCallback(drawChart);
-    </script>
-    <script>
+
         function drawChart() {
-        @{
-            int first = 0;
-            int second = 0;
-            int secondII = 0;
-            int third = 0;
-            int failed = 0;
-            int marks = 0;
 
-            foreach(var item in Model.Marks)
-            {
-                if (item >= 70)
-                    first += 1;
-                else if (item >= 60)
-                    second++;
-                else if (item >= 50)
-                    secondII++;
-                else if (item >= 40)
-                    third++;
-                else
-                    failed++;
-
-                 marks += item;
-            }
-
-            marks = marks / Model.Marks.Count();
-        }
-
-            var data = google.visualization.arrayToDataTable
-                ([
-                    ['grades', 'Number of Students'],
-                    ['First Class', @first],
-                    ['Upper Second Class', @second],
-                    ['Lower Second Class', @secondII],
-                    ['Third Class', @third],
-                    ['Failed', @failed]
-                ]);
+            var data = google.visualization.arrayToDataTable([
+                ['Task', 'Hours per Day'],
+                ['First', @first],
+                ['Upper Second', @second],
+                ['Lower Second', @secondII],
+                ['Third', @third],
+                ['Failled', @failed]
+            ]);
 
             var options = {
                 title: 'Student Grades data based on @Model.Marks.Count() students. Average student mark: @marks'
             };
+
             var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
             chart.draw(data, options);
         }
-</script>
-</header>
-<section>
-    <h2>Statistics</h2>
-    <table class="table table-bordered table-hover">
-        <thead>
-            <tr class="text-center table-success">
-                <th>No Student</th>
-                <th>Min Mark</th>
-                <th>Max Mark</th>
-                <th>Mean Mark</th>
-            </tr>
-        </thead>
-        <tbody>
+    </script>
+</head>
+<body>
+    <section>
+        <h2>Statistics</h2>
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr class="text-center table-success">
+                    <th>No Student</th>
+                    <th>Min Mark</th>
+                    <th>Max Mark</th>
+                    <th>Mean Mark</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="text-center">
+                    <td>@Model.Students.Length</td>
+                    <td>@Model.Minimum </td>
+                    <td>@Model.Maximum</td>
+                    <td>@Model.Mean.ToString("0.0")</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <section>
+        <h2>Grade Profile</h2>
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr class="text-center table-info">
+                    <th>Ungraded</th>
+                    <th>Fail</th>
+                    <th>Grade D</th>
+                    <th>Grade C</th>
+                    <th>Grade B</th>
+                    <th>Grade A</th>
+                </tr>
+            </thead>
             <tr class="text-center">
-                <td>@Model.Students.Length</td>
-                <td>@Model.Minimum </td>
-                <td>@Model.Maximum</td>
-                <td>@Model.Mean.ToString("0.0")</td>
+                @foreach (int count in Model.GradeProfile)
+                {
+                    double percent = (double)count / Model.Marks.Length;
+                    <td>@percent.ToString("0.0%")</td>
+                }
             </tr>
-        </tbody>
-    </table>
-</section>
-<section>
-    <h2>Grade Profile</h2>
-    <table class="table table-bordered table-hover">
-        <thead>
-            <tr class="text-center table-info">
-                <th>Ungraded</th>
-                <th>Fail</th>
-                <th>Grade D</th>
-                <th>Grade C</th>
-                <th>Grade B</th>
-                <th>Grade A</th>
-            </tr>
-        </thead>
-        <tr class="text-center">
-            @foreach (int count in Model.GradeProfile)
-            {
-                double percent = (double)count / Model.Marks.Length;
-                <td>@percent.ToString("0.0%")</td>
-            }
-        </tr>
-    </table>
-
+        </table>
+    </section>
     <div id="piechart" style="width: 900px; height: 500px;"></div>
-</section>
-
-
+</body>
+</html>
 
 
 
