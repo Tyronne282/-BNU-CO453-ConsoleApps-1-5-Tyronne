@@ -55,7 +55,8 @@ namespace ConsoleAppProject.App03
         }
 
         /// <summary>
-        /// The User can select an option within the app.
+        /// The User can select between Input marks, output marks,
+        /// output marks, and output grade profile.
         /// </summary>
         public void OutputMenu()
         {

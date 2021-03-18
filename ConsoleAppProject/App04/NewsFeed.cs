@@ -57,6 +57,119 @@ namespace ConsoleAppProject.App04
             posts.Add(photo);
         }
 
+        /// <summary>
+        /// This allows the user to add comments to posts 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="comment"></param>
+        public void AddComment(int id, string comment)
+        {
+            Post post = FindPost(id);
+
+            if (post == null)
+            {
+                Console.WriteLine($"\n\tPost with ID {id} doesn't exist.");
+            }
+            else if (comment == "")
+            {
+                Console.WriteLine($"\n\tNo comment has been entered.");
+            }
+            else
+            {
+                Console.WriteLine("\n\tComment has been added to post with "
+                    + $"ID {id}\n");
+                post.AddComment(comment);
+                post.Display();
+            }
+        }
+
+        /// <summary>
+        /// This allows the user to remove a post that has
+        /// been made
+        /// </summary>
+        /// <param name="id"></param>
+        public void RemovePost(int id)
+        {
+            Post post = FindPost(id);
+
+            if (post == null)
+            {
+                Console.WriteLine($" \nPost with ID = {id} does not exists!!\n");
+            }
+            else
+            {
+                Console.WriteLine($" \nThe following Post {id} has been removed!\n");
+
+                if(post is MessagePost mp)
+                {
+                    mp.Display();
+                }
+                else if(post is PhotoPost pp)
+                {
+                    pp.Display();
+                }
+
+                posts.Remove(post);
+                post.Display();
+            }
+        }
+
+        /// <summary>
+        /// This creates a ID for each post in order to help
+        /// the user find older posts 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public Post FindPost(int id)
+        {
+            foreach(Post post in posts)
+            {
+                if(post.PostId == id)
+                {
+                    return post;
+                }
+            }
+
+            return null;
+
+        }
+
+        /// <summary>
+        /// Allows the user to find a post based on
+        /// the user.
+        /// </summary>
+        /// <param name="author"></param>
+        /// <returns></returns>
+        public Post FindPostByAuthor(string author)
+        {
+            foreach (Post post in posts)
+            {
+                if (post.Username == author)
+                {
+                    return post;
+                }
+            }
+
+            return null;
+        }
+
+        /// <summary>
+        /// Allows the user to display posts based on 
+        /// on the author
+        /// </summary>
+        /// <param name="author"></param>
+        public void DisplayByAuthor(string author)
+        {
+            // TODO: Need to add else statement if author doesn't exist.
+            foreach (Post post in posts)
+            {
+                if (post == FindPostByAuthor(author))
+                {
+                    post.Display();
+                }
+            }
+        }
+
         ///<summary>
         /// Show the news feed. Currently: print the news feed details to the
         /// terminal. (To do: replace this later with display in web browser.)

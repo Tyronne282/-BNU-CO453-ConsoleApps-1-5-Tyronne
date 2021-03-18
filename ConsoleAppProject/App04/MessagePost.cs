@@ -35,7 +35,9 @@ namespace ConsoleAppProject.App04
         }
 
         /// <summary>
-        /// 
+        /// Overrides the message from the base class and 
+        /// displays a message that is common with a created 
+        /// post
         /// </summary>
         public override void Display()
         {

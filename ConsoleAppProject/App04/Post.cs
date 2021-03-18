@@ -6,22 +6,42 @@ namespace ConsoleAppProject.App04
 {
     public class Post
     {
-        private int likes;
-
-        private readonly List<String> comments;
+        public int PostId { get; }
 
         // username of the post's author
         public String Username { get; }
 
         public DateTime Timestamp { get; }
 
+        private static int instances = 0;
+
+        private int likes;
+
+        private readonly List<String> comments;
+
+        /// <summary>
+        /// Constructor for getting the Posts values
+        /// </summary>
+        /// <param name="author"></param>
         public Post(string author)
         {
+            instances++;
+            PostId = instances;
+
             this.Username = author;
             Timestamp = DateTime.Now;
 
             likes = 0;
             comments = new List<String>();
+        }
+
+        /// <summary>
+        /// Returns the number of Posts.
+        /// </summary>
+        /// <returns></returns>
+        public static int GetNumberOfPosts()
+        {
+            return instances;
         }
 
         /// <summary>
@@ -92,7 +112,8 @@ namespace ConsoleAppProject.App04
         public virtual void Display()
         {
             Console.WriteLine();
-            Console.WriteLine($"    Author: {Username}");
+            Console.WriteLine($"    Post ID:      {PostId}");
+            Console.WriteLine($"    Author:       {Username}");
             Console.WriteLine($"    Time Elpased: {FormatElapsedTime(Timestamp)}");
             Console.WriteLine();
 
@@ -112,6 +133,14 @@ namespace ConsoleAppProject.App04
             else
             {
                 Console.WriteLine($"    {comments.Count}  comment(s). Click here to view.");
+                int commentNo = 0;
+
+                foreach (string comment in comments)
+                {
+                    commentNo++;
+                    Console.WriteLine($"\tComment {commentNo}");
+                    Console.WriteLine($"\tComment\n");
+                }
             }
         }
     }
