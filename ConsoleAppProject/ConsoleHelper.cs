@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
-using System.Reflection;
 
 namespace ConsoleAppProject
 {
@@ -14,12 +9,12 @@ namespace ConsoleAppProject
         /// </summary>
         public static void OutputHeading(string title)
         {
-                Console.WriteLine();
-                Console.WriteLine("\n --------------------------------- ");
-                Console.WriteLine($"\t{title}                           ");
-                Console.WriteLine("         by Tyronne Bradburn         ");
-                Console.WriteLine(" ---------------------------------\n ");
-                Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine("\n --------------------------------- ");
+            Console.WriteLine($"\t{title}                           ");
+            Console.WriteLine("         by Tyronne Bradburn         ");
+            Console.WriteLine(" ---------------------------------\n ");
+            Console.WriteLine();
         }
 
         /// <summary>

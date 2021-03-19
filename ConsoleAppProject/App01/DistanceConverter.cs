@@ -61,7 +61,7 @@ namespace ConsoleAppProject.App01
             ToUnit = SelectUnit(" Please select the distance unit > ");
 
             Console.WriteLine($"\n Converting {FromUnit} to {ToUnit}");
-            
+
             FromDistance = ConsoleHelper.InputNumber($" Please enter the number of {FromUnit} > ");
 
             CalculateDistance();

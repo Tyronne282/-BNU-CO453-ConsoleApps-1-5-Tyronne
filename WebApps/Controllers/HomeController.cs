@@ -1,8 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics;
-using ConsoleAppProject.App01;
+﻿using ConsoleAppProject.App01;
 using ConsoleAppProject.App02;
-using ConsoleAppProject.App03;
+using Microsoft.AspNetCore.Mvc;
+using System.Diagnostics;
 using WebApps.Models;
 
 
@@ -18,7 +17,7 @@ namespace WebApps.Controllers
 
         public IActionResult DistanceConverter(DistanceConverter converter)
         {
-            if(converter.FromDistance > 0)
+            if (converter.FromDistance > 0)
             {
                 converter.CalculateDistance();
             }

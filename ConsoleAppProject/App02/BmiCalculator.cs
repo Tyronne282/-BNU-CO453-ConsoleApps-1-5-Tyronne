@@ -70,7 +70,7 @@ namespace ConsoleAppProject.App02
 
             UnitSystem unitSystem = SelectUnits();
 
-            if(unitSystem == UnitSystem.Metric)
+            if (unitSystem == UnitSystem.Metric)
             {
                 InputMetricDetails();
                 CalculateMetricBMI();
@@ -141,7 +141,7 @@ namespace ConsoleAppProject.App02
         private void InputImperialDetails()
         {
 
-            Feet = (int)ConsoleHelper.InputNumber("\n Enter your height in feet > ", 0, 10); 
+            Feet = (int)ConsoleHelper.InputNumber("\n Enter your height in feet > ", 0, 10);
             Inches = (int)ConsoleHelper.InputNumber("\n Enter your height in inches > ", 0, 50);
 
             Stones = (int)ConsoleHelper.InputNumber("\n Enter your height in stones > ", 0, 30);
@@ -154,7 +154,7 @@ namespace ConsoleAppProject.App02
         /// </summary>
         private void InputMetricDetails()
         {
-            Centimetres =(int) ConsoleHelper.InputNumber(
+            Centimetres = (int)ConsoleHelper.InputNumber(
                 "\n Enter your height in Centimetres > ", 0, 300);
 
             Kilograms = ConsoleHelper.InputNumber(
@@ -206,7 +206,7 @@ namespace ConsoleAppProject.App02
             }
 
             return message.ToString();
-            
+
         }
 
         /// <summary>
@@ -216,7 +216,7 @@ namespace ConsoleAppProject.App02
         public string GetBameMessage()
         {
             StringBuilder message = new StringBuilder("\n");
-            
+
             message.Append(" If you are Black, Asian or other minority");
             message.Append("\n ethnic groups, you have a higher risk");
             message.Append("\n");

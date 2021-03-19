@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace ConsoleAppProject.App04
 {
@@ -14,7 +13,7 @@ namespace ConsoleAppProject.App04
     /// </author>
     public class MessagePost : Post
     {
-       
+
         // an arbitrarily long, multi-line message
         public String Message { get; }
 
@@ -27,7 +26,7 @@ namespace ConsoleAppProject.App04
         /// <param name="text">
         /// The text of this post.
         /// </param>
-        public MessagePost(String author, String text):base(author)
+        public MessagePost(String author, String text) : base(author)
         {
 
             Message = text;

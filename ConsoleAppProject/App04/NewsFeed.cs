@@ -100,11 +100,11 @@ namespace ConsoleAppProject.App04
             {
                 Console.WriteLine($" \nThe following Post {id} has been removed!\n");
 
-                if(post is MessagePost mp)
+                if (post is MessagePost mp)
                 {
                     mp.Display();
                 }
-                else if(post is PhotoPost pp)
+                else if (post is PhotoPost pp)
                 {
                     pp.Display();
                 }
@@ -122,9 +122,9 @@ namespace ConsoleAppProject.App04
         /// <returns></returns>
         public Post FindPost(int id)
         {
-            foreach(Post post in posts)
+            foreach (Post post in posts)
             {
-                if(post.PostId == id)
+                if (post.PostId == id)
                 {
                     return post;
                 }
@@ -184,5 +184,4 @@ namespace ConsoleAppProject.App04
             }
         }
     }
-
 }

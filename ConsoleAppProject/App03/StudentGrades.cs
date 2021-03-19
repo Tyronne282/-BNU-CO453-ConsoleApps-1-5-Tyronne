@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
 
 namespace ConsoleAppProject.App03
 {
@@ -29,7 +25,7 @@ namespace ConsoleAppProject.App03
         public const int HUNDRED = 100;
 
         // Properties 
-        public string [] Students { get; set; }
+        public string[] Students { get; set; }
         public int[] Marks { get; set; }
         public int[] GradeProfile { get; set; }
         public double Mean { get; set; }
@@ -165,10 +161,10 @@ namespace ConsoleAppProject.App03
         {
             Minimum = Marks[0];
             Maximum = Marks[0];
-            
+
             double total = 0;
 
-            foreach(int mark in Marks)
+            foreach (int mark in Marks)
             {
                 if (mark > Maximum) Maximum = mark;
                 if (mark < Minimum) Minimum = mark;

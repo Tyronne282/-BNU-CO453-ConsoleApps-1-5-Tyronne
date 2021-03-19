@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace ConsoleAppProject.App04
 {
@@ -10,8 +8,9 @@ namespace ConsoleAppProject.App04
         private NewsFeed news = new NewsFeed();
 
         /// <summary>
-        /// Displays a menu for the user to select
-        /// an action.
+        /// The user can select between 1-9 and
+        /// then the user then process the selected 
+        /// option
         /// </summary>
         public void DisplayMenu()
         {
@@ -117,6 +116,11 @@ namespace ConsoleAppProject.App04
             news.Display();
         }
 
+        /// <summary>
+        /// The user can search for posts created by
+        /// the defined author and then displays all
+        /// the posts created by the defined author
+        /// </summary>
         private void DisplayByAuthor()
         {
             ConsoleHelper.OutputHeading("Display Posts by Author");
@@ -128,11 +132,23 @@ namespace ConsoleAppProject.App04
             news.DisplayByAuthor(author);
         }
 
+
+        /// <summary>
+        /// The user can search for posts created on 
+        /// a set date and then any posts created by 
+        /// the defined date will be displayed.
+        /// </summary>
         private void DisplayByDate()
         {
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// The user can search for a post by using 
+        /// the post ID number and then the user 
+        /// will be able to add a comment to the 
+        /// selected post
+        /// </summary>
         private void AddComment()
         {
             ConsoleHelper.OutputHeading("Adding a Comment");
