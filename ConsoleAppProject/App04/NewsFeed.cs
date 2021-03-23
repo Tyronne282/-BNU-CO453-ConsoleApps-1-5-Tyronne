@@ -36,7 +36,6 @@ namespace ConsoleAppProject.App04
             AddPhotoPost(photoPost);
         }
 
-
         ///<summary>
         /// Add a text post to the news feed.
         /// 
@@ -68,11 +67,11 @@ namespace ConsoleAppProject.App04
 
             if (post == null)
             {
-                Console.WriteLine($"\n\tPost with ID {id} doesn't exist.");
+                Console.WriteLine($"\n\tPost with ID {id} doesn't exist.\n");
             }
             else if (comment == "")
             {
-                Console.WriteLine($"\n\tNo comment has been entered.");
+                Console.WriteLine($"\n\tNo comment has been entered.\n");
             }
             else
             {
@@ -160,13 +159,21 @@ namespace ConsoleAppProject.App04
         /// <param name="author"></param>
         public void DisplayByAuthor(string author)
         {
+            int count = 0;
+
             // TODO: Need to add else statement if author doesn't exist.
             foreach (Post post in posts)
             {
                 if (post == FindPostByAuthor(author))
                 {
                     post.Display();
+                    Console.WriteLine();
                 }
+            }
+
+            if (count < 1)
+            {
+                Console.WriteLine("\tThere are no posts that match that name!\n");
             }
         }
 

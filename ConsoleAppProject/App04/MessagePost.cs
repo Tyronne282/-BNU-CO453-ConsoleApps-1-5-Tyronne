@@ -13,7 +13,6 @@ namespace ConsoleAppProject.App04
     /// </author>
     public class MessagePost : Post
     {
-
         // an arbitrarily long, multi-line message
         public String Message { get; }
 

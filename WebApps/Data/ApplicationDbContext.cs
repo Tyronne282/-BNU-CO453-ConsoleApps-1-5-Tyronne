@@ -11,6 +11,14 @@ namespace WebApps.Data
         {
         }
 
+        // App 03
         public DbSet<Student> Students { get; set; }
+
+        // App 04
+        public DbSet<Post> Posts { get; set; }
+
+        public DbSet<MessagePost> Messages { get; set; }
+
+        public DbSet<PhotoPost> Photos { get; set; }
     }
 }
