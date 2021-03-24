@@ -145,6 +145,82 @@ namespace WebApps.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        /// <summary>
+        /// Liks the photo post from the details page 
+        /// and updates the database and returns back 
+        /// to the details page.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public ActionResult Like(int id)
+        {
+            var photoPost = _context.Photos.Find(id);
+
+            if (photoPost == null)
+            {
+                return NotFound();
+            }
+
+            photoPost.Like();
+
+            try
+            {
+                _context.Update(photoPost);
+                _context.SaveChanges();
+            }
+            catch(DbUpdateConcurrencyException)
+            {
+                if (!PhotoPostExists(photoPost.PostId))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return RedirectToAction("Details", new { id = id });
+        }
+
+        /// <summary>
+        /// Unlikes the photo from the details page
+        /// and updates the database and returns back
+        /// to the details page.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public ActionResult Unlike(int id)
+        {
+            var photoPost = _context.Photos.Find(id);
+
+            if (photoPost == null)
+            {
+                return NotFound();
+            }
+
+            photoPost.Unlike();
+
+            try
+            {
+                _context.Update(photoPost);
+                _context.SaveChanges();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!PhotoPostExists(photoPost.PostId))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return RedirectToAction("Details", new { id = id });
+        }
+
         private bool PhotoPostExists(int id)
         {
             return _context.Photos.Any(e => e.PostId == id);

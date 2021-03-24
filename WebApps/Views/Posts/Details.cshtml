@@ -10,27 +10,60 @@
     <h4>Post</h4>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Username)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Username)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Timestamp)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Timestamp)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.likes)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.likes)
         </dd>
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.PostId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    @if(Model.Comments == null || Model.Comments.Count() == 0 )
+     {
+         <p>
+            No comments have been posted yet!
+         </p>
+     }
+    else
+    {
+        foreach(Comment comment in Model.Comments)
+                {
+                    @comment.Text
+                }
+    }
 </div>
+<br />
+<div>
+    <a class="btn btn-danger" title="Should be only be availble to the author"
+       asp-action="Edit" asp-route-id="@Model.PostId">
+        Edit
+    </a>
+    <a class="btn btn-success" asp-action="Like" title="like"
+       asp-route-id="@Model.PostId">
+        <i class="bi bi-hand-thumbs-up"></i>
+    </a>
+    <a class="btn btn-warning" asp-action="Unlike" title="Unlike"
+       asp-route-id="@Model.PostId">
+        <i class="bi bi-hand-thumbs-down"></i>
+    </a>
+    <a class="btn btn-info" asp-action="Comment" title="Comment"
+       asp-route-id="@Model.PostId">
+        <i class="bi bi-chat-left-text"></i>
+        Comment
+    </a>
+    <a class="btn btn-secondary" asp-action="Index">&lt;&lt;Back to Photos</a>
+</div>
+

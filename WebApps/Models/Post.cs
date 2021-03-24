@@ -18,7 +18,7 @@ namespace WebApps.Models
 
         public int likes { get; set; }
 
-        
+        public virtual ICollection<Comment> Comments { get; set; }
 
         /// <summary>
         /// Constructor for getting the Posts values

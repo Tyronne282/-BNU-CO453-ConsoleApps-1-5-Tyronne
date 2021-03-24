@@ -19,18 +19,50 @@ namespace WebApps.Controllers
             _context = context;
         }
 
+
         // GET: Posts
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string sortOrder
+            , string searchString)
         {
-            var messages = await _context.Messages.ToListAsync();
-            var photos = await _context.Photos.ToListAsync();
+            ViewData["PostIDSortParm"] = sortOrder == "PostID" ?
+                "postid_desc" : "PostID";
+            ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder)
+                ? "name_desc" : "";
+            ViewData["DateSortParm"] = sortOrder == "Date" ? "date_desc"
+                : "Date";
+            ViewData["CurrentFilter"] = searchString;
 
-            List<Post> Posts = new List<Post>();
+            var posts = from p in _context.Posts
+                        select p;
 
-            Posts.AddRange(messages);
-            Posts.AddRange(photos);
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                posts = posts.Where(u => u.Username == searchString);
+            }
 
-            return View(Posts);
+            switch (sortOrder)
+            {
+                case "PostID":
+                    posts = posts.OrderBy(p => p.PostId);
+                    break;
+                case "postid_desc":
+                    posts = posts.OrderByDescending(p => p.PostId);
+                    break;
+                case "name_desc":
+                    posts = posts.OrderByDescending(u => u.Username);
+                    break;
+                case "Date":
+                    posts = posts.OrderBy(d => d.Timestamp);
+                    break;
+                case "date_desc":
+                    posts = posts.OrderByDescending(d => d.Timestamp);
+                    break;
+                default:
+                    posts = posts.OrderBy(p => p.PostId);
+                    break;
+            }
+
+            return View(await posts.ToListAsync());
         }
 
         // GET: Posts/Details/5

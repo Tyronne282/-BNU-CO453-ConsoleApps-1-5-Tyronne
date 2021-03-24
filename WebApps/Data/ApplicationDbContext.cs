@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 using WebApps.Models;
 
 namespace WebApps.Data
@@ -17,8 +18,11 @@ namespace WebApps.Data
         // App 04
         public DbSet<Post> Posts { get; set; }
 
+        [DataType(DataType.MultilineText)]
         public DbSet<MessagePost> Messages { get; set; }
 
         public DbSet<PhotoPost> Photos { get; set; }
+
+        public DbSet<Comment> Comments { get; set; }
     }
 }
