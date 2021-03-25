@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -34,11 +35,14 @@ namespace WebApps.Controllers
             }
 
             var photoPost = await _context.Photos
+                .Include(m =>m.Comments)
                 .FirstOrDefaultAsync(m => m.PostId == id);
             if (photoPost == null)
             {
                 return NotFound();
             }
+
+            HttpContext.Session.SetString("CONTROLLER", "PHOTO");
 
             return View(photoPost);
         }

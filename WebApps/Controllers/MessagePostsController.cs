@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -34,11 +35,14 @@ namespace WebApps.Controllers
             }
 
             var messagePost = await _context.Messages
+                .Include(m => m.Comments)
                 .FirstOrDefaultAsync(m => m.PostId == id);
             if (messagePost == null)
             {
                 return NotFound();
             }
+
+            HttpContext.Session.SetString("CONTROLLER", "MESSAGE");
 
             return View(messagePost);
         }
@@ -78,6 +82,7 @@ namespace WebApps.Controllers
             {
                 return NotFound();
             }
+
             return View(messagePost);
         }
 
@@ -149,5 +154,7 @@ namespace WebApps.Controllers
         {
             return _context.Messages.Any(e => e.PostId == id);
         }
+
+        
     }
 }

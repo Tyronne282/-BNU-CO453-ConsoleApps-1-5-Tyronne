@@ -61,7 +61,9 @@
     {
         foreach (Comment comment in Model.Comments)
         {
-            @comment.Text
+            <p>
+                @comment.Text
+            </p>
         }
     }
 </div>
@@ -84,5 +86,5 @@
         <i class="bi bi-chat-left-text"></i>
         Comment
     </a>
-    <a class="btn btn-secondary" asp-action="Index">&lt;&lt;Back to Photos</a>
+    <a class="btn btn-secondary" asp-controller="PhotoPosts" asp-action="Index">&lt;&lt;Back to Photos</a>
 </div>

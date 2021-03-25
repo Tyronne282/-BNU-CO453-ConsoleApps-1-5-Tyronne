@@ -226,7 +226,7 @@ namespace WebApps.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("PostID")
+                    b.Property<int>("PostId")
                         .HasColumnType("int");
 
                     b.Property<string>("Text")
@@ -234,7 +234,7 @@ namespace WebApps.Migrations
 
                     b.HasKey("CommentID");
 
-                    b.HasIndex("PostID");
+                    b.HasIndex("PostId");
 
                     b.ToTable("Comments");
                 });
@@ -371,7 +371,7 @@ namespace WebApps.Migrations
                 {
                     b.HasOne("WebApps.Models.Post", "Post")
                         .WithMany("Comments")
-                        .HasForeignKey("PostID")
+                        .HasForeignKey("PostId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

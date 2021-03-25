@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -67,8 +68,19 @@ namespace WebApps.Controllers
             {
                 _context.Add(comment);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                var controller = HttpContext.Session.GetString("CONTROLLER");
+                if (controller == "MESSAGE")
+                {
+                    return RedirectToAction("Details", "MessagePosts",
+                    new { id = comment.PostId });
+                }
+                else
+                {
+                    return RedirectToAction("Details", "PhotoPosts",
+                    new { id = comment.PostId });
+                }
             }
+
             ViewData["PostId"] = new SelectList(_context.Posts, "PostId", "Discriminator", comment.PostId);
             return View(comment);
         }
