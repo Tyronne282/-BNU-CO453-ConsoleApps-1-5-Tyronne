@@ -6,6 +6,7 @@
 
 <header class="jumbotron">
     <h1>Social Network Homepage</h1>
+    <h2>By Tyronne Bradburn</h2>
     <p>
         This is the homepage where you can see all the posts
         created by each user either through a message post
@@ -117,7 +118,7 @@
                 }
             </td>
             <td>
-                @item.FormatElapsedTime();
+                @Html.DisplayFor(modelItem => item.Timestamp)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.likes)
