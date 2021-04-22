@@ -4,6 +4,16 @@ using System.ComponentModel.DataAnnotations;
 
 namespace WebApps.Models
 {
+    /// <summary>
+    /// This class stores information about a post in a social network,
+    /// containing the common properties such as a username, timestamp,
+    /// likes, comments and more. It acts as a superclass for the
+    /// MessagePost and PhotoPost classes.
+    /// </summary>
+    /// <author>
+    /// Tyronne Bradburn 
+    /// version 1.0
+    /// </author>
     [Serializable]
     public class Post
     {
